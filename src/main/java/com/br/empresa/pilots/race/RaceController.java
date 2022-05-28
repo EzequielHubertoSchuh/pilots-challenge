@@ -71,7 +71,7 @@ public class RaceController {
         }
     }
 
-    @ApiOperation(value = "Update  race")
+    @ApiOperation(value = "Update race")
     @PutMapping("/{id}")
     public ResponseEntity<Race> updateRace(@PathVariable(value="id") long id,
                                               @RequestBody @Validated Race race) {
