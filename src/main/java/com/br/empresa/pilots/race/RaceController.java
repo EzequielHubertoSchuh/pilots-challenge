@@ -26,7 +26,7 @@ public class RaceController {
     @Autowired
     RaceRepository raceRepository;
 
-    @ApiOperation(value = "Return a list of races")
+    @ApiOperation(value = "Return list of races")
     @GetMapping
     public ResponseEntity<List<Race>> listAll() {
         List<Race> raceList = raceRepository.findAll();
@@ -41,7 +41,7 @@ public class RaceController {
         }
     }
 
-    @ApiOperation(value = "Return a single race")
+    @ApiOperation(value = "Return single race")
     @GetMapping("/{id}")
     public ResponseEntity<Race> singleRace(@PathVariable(value = "id") long id) {
         Optional<Race> raceO = Optional.ofNullable(raceRepository.findById(id));
@@ -53,13 +53,13 @@ public class RaceController {
         }
     }
 
-    @ApiOperation(value = "Save a race")
+    @ApiOperation(value = "Save race")
     @PostMapping
     public ResponseEntity<Race> saveRace(@RequestBody @Validated Race race) {
         return new ResponseEntity<Race>(raceRepository.save(race), HttpStatus.CREATED);
     }
 
-    @ApiOperation(value = "Delete a race")
+    @ApiOperation(value = "Delete race")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteRace(@PathVariable(value = "id") long id){
         Optional<Race> raceO = Optional.ofNullable(raceRepository.findById(id));
