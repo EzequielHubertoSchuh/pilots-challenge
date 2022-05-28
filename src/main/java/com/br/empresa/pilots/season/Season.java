@@ -3,10 +3,7 @@ package com.br.empresa.pilots.season;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -16,6 +13,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @AllArgsConstructor
+@Builder
 @Entity
 @ApiModel(value = "Season", description = "This is a sample entity from the Api package.")
 @Table(name = "tb_season")

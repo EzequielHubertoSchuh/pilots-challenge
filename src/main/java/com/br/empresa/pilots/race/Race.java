@@ -4,10 +4,7 @@ package com.br.empresa.pilots.race;
 import com.br.empresa.pilots.circuit.Circuit;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -20,6 +17,7 @@ import java.time.LocalTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @ApiModel(value  = "Race", description = "This is a sample entity from the Api package.")
 @Table(name = "tb_race")
