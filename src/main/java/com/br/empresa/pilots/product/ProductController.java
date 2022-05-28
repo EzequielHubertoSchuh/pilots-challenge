@@ -24,19 +24,19 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @ApiOperation(value = "Returns a page of products")
+    @ApiOperation(value = "Returns page of products")
     @RequestMapping(method = RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> list(Pageable pageable){
         return new ResponseEntity<>(productRepository.findAll(pageable), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Returns a list of products")
+    @ApiOperation(value = "Returns list of products")
     @RequestMapping(value= "/all", method= RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> listAll(){
         return new ResponseEntity<>(productRepository.findAll(), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Save a product")
+    @ApiOperation(value = "Save product")
     @PostMapping
     public ResponseEntity<Product> saveCourse(@RequestBody @Validated Product product) {
         return new ResponseEntity<Product>(productRepository.save(product), HttpStatus.CREATED);
