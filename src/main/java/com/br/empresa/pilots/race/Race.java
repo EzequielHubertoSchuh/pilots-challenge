@@ -21,10 +21,11 @@ import java.time.LocalTime;
 @Entity
 @ApiModel(value  = "Race", description = "This is a sample entity from the Api package.")
 @Table(name = "tb_race")
+@SequenceGenerator(name = "seq_race", sequenceName = "seq_race", allocationSize = 1)
 public class Race extends RepresentationModel<Race> {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id @GeneratedValue(generator = "seq_race", strategy = GenerationType.SEQUENCE)
     @ApiModelProperty(value = "Identifier")
     @Column(name = "raceid")
     private Long id;
@@ -67,47 +68,47 @@ public class Race extends RepresentationModel<Race> {
 
     @ApiModelProperty(value = "fp1Date", required = true)
     @NotNull(message = "fp1Date field is required")
-    @Column(name = "fp1Date")
+    @Column(name = "fp1date")
     private LocalDate fp1Date;
 
     @ApiModelProperty(value = "fp1Time", required = true)
-    @Column(name = "fp1Time")
+    @Column(name = "fp1time")
     private String fp1Time;
 
     @ApiModelProperty(value = "fp2Date", required = true)
     @NotNull(message = "fp2Date field is required")
-    @Column(name = "fp2Date")
+    @Column(name = "fp2date")
     private LocalDate fp2Date;
 
     @ApiModelProperty(value = "fp2Time", required = true)
-    @Column(name = "fp2Time")
+    @Column(name = "fp2time")
     private String fp2Time;
 
     @ApiModelProperty(value = "fp3Date", required = true)
     @NotNull(message = "fp3Date field is required")
-    @Column(name = "fp3Date")
+    @Column(name = "fp3date")
     private LocalDate fp3Date;
 
     @ApiModelProperty(value = "fp3Time", required = true)
-    @Column(name = "fp3Time")
+    @Column(name = "fp3time")
     private String fp3Time;
 
     @ApiModelProperty(value = "qualiDate", required = true)
     @NotNull(message = "qualiDate field is required")
-    @Column(name = "qualiDate")
+    @Column(name = "qualidate")
     private LocalDate qualiDate;
 
     @ApiModelProperty(value = "qualiTime", required = true)
-    @Column(name = "qualiTime")
+    @Column(name = "qualitime")
     private String qualiTime;
 
     @ApiModelProperty(value = "sprintDate", required = true)
     @NotNull(message = "sprintDate field is required")
-    @Column(name = "sprintDate")
+    @Column(name = "sprintdate")
     private LocalDate sprintDate;
 
     @ApiModelProperty(value = "sprintTime", required = true)
-    @Column(name = "sprintTime")
+    @Column(name = "sprinttime")
     private String sprintTime;
 
 }

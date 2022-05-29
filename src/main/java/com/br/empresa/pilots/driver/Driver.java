@@ -20,9 +20,10 @@ import java.time.LocalDateTime;
 @Entity
 @ApiModel(value  = "Driver", description = "This is a sample entity from the Api package.")
 @Table(name = "tb_driver")
+@SequenceGenerator(name = "seq_driver", sequenceName = "seq_driver", allocationSize = 1)
 public class Driver extends RepresentationModel<Driver> {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(generator = "seq_driver",strategy = GenerationType.SEQUENCE)
     @ApiModelProperty(value = "Identifier")
     @Column(name = "driverid")
     private Long id;

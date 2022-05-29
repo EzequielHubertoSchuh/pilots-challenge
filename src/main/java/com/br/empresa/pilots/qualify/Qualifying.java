@@ -20,10 +20,11 @@ import java.time.LocalTime;
 @Entity
 @ApiModel(value  = "Qualifying", description = "This is a sample entity from the Api package.")
 @Table(name = "tb_qualifying")
+@SequenceGenerator(name = "seq_qualifying", sequenceName = "seq_qualifying",allocationSize = 1)
 public class Qualifying extends RepresentationModel<Qualifying> {
 
     @ApiModelProperty(value = "Identifier")
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(generator = "seq_qualifying",strategy = GenerationType.SEQUENCE)
     @Column(name = "qualifyingid")
     private Long id;
 

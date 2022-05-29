@@ -17,10 +17,11 @@ import javax.validation.constraints.NotNull;
 @Entity
 @ApiModel(value  = "Constructor", description = "This is a sample entity from the Api package.")
 @Table(name = "tb_constructor")
+@SequenceGenerator(name = "seq_constructor", sequenceName = "seq_constructor", allocationSize = 1)
 public class Constructor extends RepresentationModel<Constructor> {
 
     @ApiModelProperty(value = "Identifier")
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id  @GeneratedValue(generator = "seq_constructor", strategy = GenerationType.SEQUENCE)
     @Column(name = "constructorid")
     private Long id;
 

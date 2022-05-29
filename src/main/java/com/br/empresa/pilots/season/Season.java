@@ -13,15 +13,16 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Entity
 @ApiModel(value = "Season", description = "This is a sample entity from the Api package.")
 @Table(name = "tb_season")
-@NoArgsConstructor
+@SequenceGenerator(name = "seq_season", sequenceName = "seq_status", allocationSize = 1)
 public class Season extends RepresentationModel<Season> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "seq_season", strategy = GenerationType.SEQUENCE)
     @ApiModelProperty(value = "Identifier")
     @Column(name = "seasonid")
     private Long id;
