@@ -15,12 +15,13 @@ import java.io.Serializable;
 @Builder
 @Entity
 @Table(name = "tb_product")
+@SequenceGenerator(name = "seq_product", sequenceName = "seq_product",allocationSize = 1)
 public class Product extends RepresentationModel<Product> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "seq_product", strategy = GenerationType.SEQUENCE)
     @ApiModelProperty(value = "Identifier")
     @Column(name = "productid")
     private Long id;

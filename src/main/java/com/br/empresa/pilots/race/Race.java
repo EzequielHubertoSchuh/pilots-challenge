@@ -10,6 +10,7 @@ import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -23,7 +24,6 @@ import java.time.LocalTime;
 @Table(name = "tb_race")
 @SequenceGenerator(name = "seq_race", sequenceName = "seq_race", allocationSize = 1)
 public class Race extends RepresentationModel<Race> {
-
 
     @Id @GeneratedValue(generator = "seq_race", strategy = GenerationType.SEQUENCE)
     @ApiModelProperty(value = "Identifier")
@@ -43,13 +43,13 @@ public class Race extends RepresentationModel<Race> {
     @ApiModelProperty(value = "Circuit", required = true)
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "circuitid")
+    @JoinColumn(name = "circuit")
     private Circuit circuit;
 
     @ApiModelProperty(value = "Name", required = true)
     @NotNull(message = "Name field is required")
     @Column(name = "name")
-    private Integer name;
+    private String name;
 
     @ApiModelProperty(value = "Date", required = true)
     @NotNull(message = "Date field is required")

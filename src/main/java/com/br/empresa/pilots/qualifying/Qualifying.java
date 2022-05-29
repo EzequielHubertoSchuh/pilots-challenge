@@ -1,4 +1,4 @@
-package com.br.empresa.pilots.qualify;
+package com.br.empresa.pilots.qualifying;
 
 import com.br.empresa.pilots.constructor.Constructor;
 import com.br.empresa.pilots.race.Race;
@@ -30,19 +30,19 @@ public class Qualifying extends RepresentationModel<Qualifying> {
 
     @ApiModelProperty(value = "Race", required = true)
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "raceid")
     private Race race;
 
     @ApiModelProperty(value = "Driver", required = true)
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "driverid")
     private Driver driver;
 
     @ApiModelProperty(value = "Constructor", required = true)
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "constructorid")
     private Constructor constructor;
 
