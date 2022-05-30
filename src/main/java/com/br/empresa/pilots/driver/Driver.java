@@ -37,17 +37,17 @@ public class Driver extends RepresentationModel<Driver> {
     @ApiModelProperty(value = "number")
     private Integer number;
 
-    @Size(min = 3,max = 3, message = "Maximo 3 caracteres")
+    @Size(min = 3,max = 3, message = "Max 3 caracteres")
     @Column(name = "code")
     @ApiModelProperty(value = "code")
     private String code;
 
-    @NotNull
+    @NotNull(message="Forename cannot be null")
     @Column(name = "forename")
     @ApiModelProperty(value = "forename", required = true)
     private String forename;
 
-    @NotNull
+    @NotNull(message="Surname cannot be null")
     @Column(name = "surname")
     @ApiModelProperty(value = "surname", required = true)
     private String surname;
@@ -56,13 +56,13 @@ public class Driver extends RepresentationModel<Driver> {
     @ApiModelProperty(value = "dob")
     private LocalDateTime dob;
 
-    @NotNull
+    @NotNull(message="Nationality cannot be null")
     @Column(name = "nationality")
     @ApiModelProperty(value = "nationality", required = true)
     private String nationality;
 
     @URL
-    @NotNull
+    @NotNull(message="U.R.L cannot be null")
     @Column(name = "url")
     @ApiModelProperty(value = "url", required = true)
     private String url;

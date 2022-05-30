@@ -31,28 +31,28 @@ public class Race extends RepresentationModel<Race> {
     private Long id;
 
     @Column(name = "year")
-    @NotNull(message = "Year field is required")
+    @NotNull(message="Year cannot be null")
     @ApiModelProperty(value = "Year", required = true)
     private Integer year;
 
     @Column(name = "round")
-    @NotNull(message = "Round field is required")
+    @NotNull(message="Round cannot be null")
     @ApiModelProperty(value = "Round", required = true)
     private Integer round;
 
     @ApiModelProperty(value = "Circuit", required = true)
-    @NotNull
+    @NotNull(message="Circuit cannot be null")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "circuit")
     private Circuit circuit;
 
     @ApiModelProperty(value = "Name", required = true)
-    @NotNull(message = "Name field is required")
+    @NotNull(message="Name cannot be null")
     @Column(name = "name")
     private String name;
 
     @ApiModelProperty(value = "Date", required = true)
-    @NotNull(message = "Date field is required")
+    @NotNull(message="Date cannot be null")
     @Column(name = "date")
     private LocalDate date;
 
@@ -61,13 +61,13 @@ public class Race extends RepresentationModel<Race> {
     private LocalTime time;
 
     @URL
-    @NotNull(message = "Url field is required")
+    @NotNull(message="U.R.L cannot be null")
     @Column(name = "url")
     @ApiModelProperty(value = "URL", required = true)
     private String url;
 
     @ApiModelProperty(value = "fp1Date", required = true)
-    @NotNull(message = "fp1Date field is required")
+    @NotNull(message="Fp1date cannot be null")
     @Column(name = "fp1date")
     private LocalDate fp1Date;
 
@@ -76,7 +76,7 @@ public class Race extends RepresentationModel<Race> {
     private String fp1Time;
 
     @ApiModelProperty(value = "fp2Date", required = true)
-    @NotNull(message = "fp2Date field is required")
+    @NotNull(message="Fp2date cannot be null")
     @Column(name = "fp2date")
     private LocalDate fp2Date;
 
@@ -85,7 +85,7 @@ public class Race extends RepresentationModel<Race> {
     private String fp2Time;
 
     @ApiModelProperty(value = "fp3Date", required = true)
-    @NotNull(message = "fp3Date field is required")
+    @NotNull(message="Fp3date cannot be null")
     @Column(name = "fp3date")
     private LocalDate fp3Date;
 
@@ -94,7 +94,7 @@ public class Race extends RepresentationModel<Race> {
     private String fp3Time;
 
     @ApiModelProperty(value = "qualiDate", required = true)
-    @NotNull(message = "qualiDate field is required")
+    @NotNull(message="QualDate cannot be null")
     @Column(name = "qualidate")
     private LocalDate qualiDate;
 
@@ -103,7 +103,7 @@ public class Race extends RepresentationModel<Race> {
     private String qualiTime;
 
     @ApiModelProperty(value = "sprintDate", required = true)
-    @NotNull(message = "sprintDate field is required")
+    @NotNull(message="SprintDate cannot be null")
     @Column(name = "sprintdate")
     private LocalDate sprintDate;
 

@@ -8,6 +8,7 @@ import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -27,7 +28,8 @@ public class Status extends RepresentationModel<Status> {
     private Long id;
 
     @ApiModelProperty(value = "Status", required = true)
-    @NotBlank
+    @NotBlank(message = "Status cannot be null and empty")
     @Column(name = "status", nullable = false)
     private String status;
+
 }

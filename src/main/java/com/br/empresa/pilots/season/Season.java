@@ -27,13 +27,13 @@ public class Season extends RepresentationModel<Season> {
     @Column(name = "seasonid")
     private Long id;
 
-    @NotNull
+    @NotNull(message="Year cannot be null")
     @Column(name = "year")
     @ApiModelProperty(value = "Year", required = true)
     private Integer year;
 
     @URL
-    @NotNull
+    @NotNull(message="U.R.L cannot be null")
     @Column(name = "url")
     @ApiModelProperty(value = "URL", required = true)
     private String url;

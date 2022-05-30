@@ -29,29 +29,29 @@ public class Qualifying extends RepresentationModel<Qualifying> {
     private Long id;
 
     @ApiModelProperty(value = "Race", required = true)
-    @NotNull
+    @NotNull(message="Race cannot be null")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "raceid")
     private Race race;
 
     @ApiModelProperty(value = "Driver", required = true)
-    @NotNull
+    @NotNull(message="Driver cannot be null")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "driverid")
     private Driver driver;
 
     @ApiModelProperty(value = "Constructor", required = true)
-    @NotNull
+    @NotNull(message="Constructor cannot be null")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "constructorid")
     private Constructor constructor;
 
-    @NotNull
+    @NotNull(message="Number cannot be null")
     @Column(name = "number")
     @ApiModelProperty(value = "Number", required = true)
     private Integer number;
 
-    @NotNull
+    @NotNull(message="Position cannot be null")
     @Column(name = "position")
     @ApiModelProperty(value = "Position", required = true)
     private Integer position;

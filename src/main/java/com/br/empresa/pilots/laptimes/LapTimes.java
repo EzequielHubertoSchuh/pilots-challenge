@@ -31,24 +31,24 @@ public class LapTimes extends RepresentationModel<LapTimes>{
     private Long id;
 
     @ApiModelProperty(value = "Race", required = true)
-    @NotNull
+    @NotNull(message="Race cannot be null")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "raceid")
     private Race race;
 
     @ApiModelProperty(value = "Driver", required = true)
-    @NotNull
+    @NotNull(message="Driver cannot be null")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "driverid")
     private Driver driver;
 
     @ApiModelProperty(value = "Lap", required = true)
-    @NotNull
+    @NotNull(message="Lap cannot be null")
     @Column(name = "lap")
     private Integer lap;
 
     @ApiModelProperty(value = "Position", required = true)
-    @NotNull
+    @NotNull(message="Position cannot be null")
     @Column(name = "position")
     private Integer position;
 

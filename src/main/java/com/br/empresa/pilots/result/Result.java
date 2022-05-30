@@ -31,19 +31,19 @@ public class Result extends RepresentationModel<Result>{
     private Long id;
 
     @ApiModelProperty(value = "Race", required = true)
-    @NotNull
+    @NotNull(message="Race cannot be null")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "raceid")
     private Race race;
 
     @ApiModelProperty(value = "Driver", required = true)
-    @NotNull
+    @NotNull(message="Driver cannot be null")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "driverid")
     private Driver driver;
 
     @ApiModelProperty(value = "Constructor", required = true)
-    @NotNull
+    @NotNull(message="Constructor cannot be null")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "constructorid")
     private Constructor constructor;
@@ -53,7 +53,7 @@ public class Result extends RepresentationModel<Result>{
     private Integer number;
 
     @ApiModelProperty(value = "Grid", required = true)
-    @NotNull
+    @NotNull(message="Grid cannot be null")
     @Column(name = "grid")
     private Integer grid;
 
@@ -62,22 +62,22 @@ public class Result extends RepresentationModel<Result>{
     private Integer position;
 
     @ApiModelProperty(value = "Position Text", required = true)
-    @NotNull
+    @NotNull(message="Position Text cannot be null")
     @Column(name = "positiontext")
     private String positionText;
 
     @ApiModelProperty(value = "Position Order", required = true)
-    @NotNull
+    @NotNull(message="Position order cannot be null")
     @Column(name = "positionorder")
     private Number positionOrder;
 
     @ApiModelProperty(value = "Points", required = true)
-    @NotNull
+    @NotNull(message="Points cannot be null")
     @Column(name = "points")
     private Integer points;
 
     @ApiModelProperty(value = "Laps", required = true)
-    @NotNull
+    @NotNull(message="Laps cannot be null")
     @Column(name = "laps")
     private Integer laps;
 
@@ -106,7 +106,7 @@ public class Result extends RepresentationModel<Result>{
     private Integer fastestlapspeed;
 
     @ApiModelProperty(value = "Status id", required = true)
-    @NotNull
+    @NotNull(message="Status cannot be null")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "statusid")
     private Status status;
