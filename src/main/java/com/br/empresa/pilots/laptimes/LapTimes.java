@@ -21,24 +21,24 @@ import java.time.LocalTime;
 @Entity
 @ApiModel(value  = "Lap Times", description = "This is a sample entity from the Api package.")
 @Table(name = "tb_laptimes")
-public class LapTimes extends RepresentationModel<LapTimes> implements Serializable{
-    private static final long serialVersionUID = 1L;
+@SequenceGenerator(name = "seq_laptimes", sequenceName = "seq_laptimes",allocationSize = 1)
+public class LapTimes extends RepresentationModel<LapTimes>{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "seq_laptimes",strategy = GenerationType.SEQUENCE)
     @ApiModelProperty(value = "Identifed")
     @Column(name = "laptimesid")
     private Long id;
 
     @ApiModelProperty(value = "Race", required = true)
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "raceid")
     private Race race;
 
     @ApiModelProperty(value = "Driver", required = true)
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "driverid")
     private Driver driver;
 

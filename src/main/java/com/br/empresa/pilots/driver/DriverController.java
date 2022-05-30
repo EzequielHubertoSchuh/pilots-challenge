@@ -42,6 +42,24 @@ public class DriverController {
         }
     }
 
+    @ApiOperation(value = "Drivers who have already won at least 1 race")
+    @GetMapping("/winning")
+    public ResponseEntity<List<Driver>> listWinning() {
+        List<Driver> driverList = driverRepository.findAll();
+
+
+
+        if (driverList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            for (Driver driver : driverList) {
+                long id = driver.getId();
+                driver.add(linkTo(methodOn(DriverController.class).singleDriver(id)).withSelfRel());
+            }
+            return new ResponseEntity<List<Driver>>(driverList, HttpStatus.OK);
+        }
+    }
+
     @ApiOperation(value = "Return a single driver")
     @GetMapping("/{id}")
     public ResponseEntity<Driver> singleDriver(@PathVariable(value = "id") long id) {
