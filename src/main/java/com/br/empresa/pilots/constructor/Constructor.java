@@ -15,13 +15,13 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Builder
 @Entity
-@ApiModel(value  = "Constructor", description = "This is a sample entity from the Api package.")
-@Table(name = "tb_constructor")
-@SequenceGenerator(name = "seq_constructor", sequenceName = "seq_constructor", allocationSize = 1)
+@ApiModel(value  = "Constructor Results", description = "This is a sample entity from the Api package.")
+@Table(name = "tb_constructorresult")
+@SequenceGenerator(name = "tb_constructorresult", sequenceName = "tb_constructorresult", allocationSize = 1)
 public class Constructor extends RepresentationModel<Constructor> {
 
     @ApiModelProperty(value = "Identifier")
-    @Id  @GeneratedValue(generator = "seq_constructor", strategy = GenerationType.SEQUENCE)
+    @Id  @GeneratedValue(generator = "tb_constructorresult", strategy = GenerationType.SEQUENCE)
     @Column(name = "constructorid")
     private Long id;
 
