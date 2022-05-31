@@ -47,11 +47,6 @@ public class PitStop extends RepresentationModel<PitStop>{
     @Column(name = "stop")
     private Integer stop;
 
-    @ApiModelProperty(value = "Grid", required = true)
-    @NotNull(message="Grid cannot be null")
-    @Column(name = "grid")
-    private Integer grid;
-
     @ApiModelProperty(value = "Lap")
     @NotNull(message="Lap cannot be null")
     @Column(name = "lap")
