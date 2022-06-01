@@ -1,16 +1,14 @@
 package com.br.empresa.pilots.constructorresult;
 
-import com.br.empresa.pilots.driver.Driver;
+import com.br.empresa.pilots.constructor.Constructor;
 import com.br.empresa.pilots.race.Race;
 import com.br.empresa.pilots.status.Status;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
-import org.hibernate.validator.constraints.URL;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -19,14 +17,14 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Builder
 @Entity
-@ApiModel(value  = "Constructor", description = "This is a sample entity from the Api package.")
-@Table(name = "tb_constructor")
-@SequenceGenerator(name = "seq_constructor", sequenceName = "seq_constructor", allocationSize = 1)
+@ApiModel(value  = "Constructor Result", description = "This is a sample entity from the Api package.")
+@Table(name = "tb_constructorresult")
+@SequenceGenerator(name = "seq_constructorresult", sequenceName = "seq_constructorresult", allocationSize = 1)
 public class ConstructorResult extends RepresentationModel<ConstructorResult> {
 
     @ApiModelProperty(value = "Identifier")
-    @Id  @GeneratedValue(generator = "seq_constructor", strategy = GenerationType.SEQUENCE)
-    @Column(name = "constructorid")
+    @Id  @GeneratedValue(generator = "seq_constructorresult", strategy = GenerationType.SEQUENCE)
+    @Column(name = "constructorresultid")
     private Long id;
 
     @ApiModelProperty(value = "Race", required = true)
@@ -35,11 +33,11 @@ public class ConstructorResult extends RepresentationModel<ConstructorResult> {
     @JoinColumn(name = "raceid")
     private Race race;
 
-    @ApiModelProperty(value = "Driver", required = true)
-    @NotNull(message="Driver cannot be null")
+    @ApiModelProperty(value = "Constructorid", required = true)
+    @NotNull(message="Constructor cannot be null")
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "driverid")
-    private Driver driver;
+    @JoinColumn(name = "constructorid")
+    private Constructor constructor;
 
     @ApiModelProperty(value = "Points", required = true)
     @NotNull(message="Points cannot be null")

@@ -18,9 +18,9 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/constructors")
+@RequestMapping("/api/constructorresult")
 @AllArgsConstructor
-@Api(value = "Constructor")
+@Api(value = "Constructor result")
 @Transactional
 public class ConstructorResultController {
 
