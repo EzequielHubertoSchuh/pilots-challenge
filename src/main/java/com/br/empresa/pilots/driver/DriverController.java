@@ -1,6 +1,8 @@
 package com.br.empresa.pilots.driver;
 
 
+import com.br.empresa.pilots.driverstanding.DriverStanding;
+import com.br.empresa.pilots.driverstanding.DriverStandingRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -11,8 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -31,24 +35,6 @@ public class DriverController {
     @GetMapping
     public ResponseEntity<List<Driver>> listAll() {
         List<Driver> driverList = driverRepository.findAll();
-        if (driverList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } else {
-            for (Driver driver : driverList) {
-                long id = driver.getId();
-                driver.add(linkTo(methodOn(DriverController.class).singleDriver(id)).withSelfRel());
-            }
-            return new ResponseEntity<List<Driver>>(driverList, HttpStatus.OK);
-        }
-    }
-
-    @ApiOperation(value = "Drivers who have already won at least 1 race")
-    @GetMapping("/winning")
-    public ResponseEntity<List<Driver>> listWinning() {
-        List<Driver> driverList = driverRepository.findAll();
-
-
-
         if (driverList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {

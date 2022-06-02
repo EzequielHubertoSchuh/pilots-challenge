@@ -24,7 +24,6 @@ public class Book extends RepresentationModel<Book> implements Serializable  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(value = "Identifed")
     private Long id;
-
     @Column(name = "name")
     private String name;
 
