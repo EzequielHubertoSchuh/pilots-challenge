@@ -66,4 +66,9 @@ public class Driver extends RepresentationModel<Driver> {
     @Column(name = "url")
     @ApiModelProperty(value = "url", required = true)
     private String url;
+
+    public Driver(Long id, String driverRef) {
+        this.id = id;
+        this.driverRef = driverRef;
+    }
 }

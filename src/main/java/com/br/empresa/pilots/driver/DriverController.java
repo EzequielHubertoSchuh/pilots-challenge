@@ -1,8 +1,6 @@
 package com.br.empresa.pilots.driver;
 
 
-import com.br.empresa.pilots.driverstanding.DriverStanding;
-import com.br.empresa.pilots.driverstanding.DriverStandingRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -13,10 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -42,7 +38,7 @@ public class DriverController {
                 long id = driver.getId();
                 driver.add(linkTo(methodOn(DriverController.class).singleDriver(id)).withSelfRel());
             }
-            return new ResponseEntity<List<Driver>>(driverList, HttpStatus.OK);
+            return new ResponseEntity<>(driverList, HttpStatus.OK);
         }
     }
 
@@ -54,14 +50,14 @@ public class DriverController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             driverO.get().add(linkTo(methodOn(DriverController.class).listAll()).withRel("List of drivers"));
-            return new ResponseEntity<Driver>(driverO.get(), HttpStatus.OK);
+            return new ResponseEntity<>(driverO.get(), HttpStatus.OK);
         }
     }
 
     @ApiOperation(value = "Save a driver")
     @PostMapping
     public ResponseEntity<Driver> saveDriver(@RequestBody @Validated Driver driver) {
-        return new ResponseEntity<Driver>(driverRepository.save(driver), HttpStatus.CREATED);
+        return new ResponseEntity<>(driverRepository.save(driver), HttpStatus.CREATED);
     }
 
     @ApiOperation(value = "Delete a driver")
@@ -85,6 +81,7 @@ public class DriverController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         driver.setId(driverO.get().getId());
-        return new ResponseEntity<Driver>(driverRepository.save(driver), HttpStatus.OK);
+        return new ResponseEntity<>(driverRepository.save(driver), HttpStatus.OK);
     }
+
 }
